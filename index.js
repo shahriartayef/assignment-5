@@ -23,3 +23,53 @@ function getInputValue(id){
 */
 
 //function to set innertext
+
+ction setInnerText(value){
+    const availableCoinElement= document.getElementById("available-coin")
+    availableCoinElement.innerText =value
+}
+
+//call-button
+function makeCall(serviceName, serviceNumber) {
+    if (coins < 20) {
+      alert("Not enough coins to make a call!");
+      return;
+    }
+    coins -= 20;
+    alert(`Calling ${serviceName} at ${serviceNumber}`);
+    document.getElementById("available-coin").innerText = coins;
+    // Add call history dynamically
+    const historyContainer = document.getElementById("history-container");
+
+    const historyItem = document.createElement("div");
+    historyItem.className = "bg-gray-100 rounded-xl p-3 flex justify-between items-center my-2";
+
+    historyItem.innerHTML = `
+        <div>
+            <h1 class="font-bold">${serviceName}</h1>
+            <p>${serviceNumber}</p>
+        </div>
+        <p>${new Date().toLocaleTimeString()}</p>
+    `;
+
+    historyContainer.appendChild(historyItem);
+}
+
+
+//copy-button
+function copyNumber(serviceNumber) {
+    availableCopy++;
+    document.getElementById("available-copy").innerText = availableCopy;
+    alert("Hotline number " + serviceNumber + " copied!");
+}
+
+//heart-button
+function makeFavorite() {
+      availableHeart++;
+      document.getElementById("available-heart").innerText =  availableHeart;
+}
+
+// Clear History function
+function clearHistory() {
+    document.getElementById("history-container").innerHTML = "";
+}
