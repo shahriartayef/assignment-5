@@ -24,7 +24,7 @@ function getInputValue(id){
 
 //function to set innertext
 
-ction setInnerText(value){
+function setInnerText(value){
     const availableCoinElement= document.getElementById("available-coin")
     availableCoinElement.innerText =value
 }
